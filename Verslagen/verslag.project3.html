@@ -4,13 +4,11 @@
 <title>ALU</title>
 <!-- Het "u" element (underline) is geherdefinieerd voor overline -->
 <style type="text/css">z {text-decoration: overline;}</style>
-
 </head>
 
 <body>
 
-<h1>Verslag</h1>    
-<p><b>Titel:</b> <i>Titel</i></p>
+<h1>Verslag 3: 12-Bit ALU</h1>    
 <p>Dit verslag werd opgesteld door:<br />
 <ul>
 <li><b>Naam:</b> <i>Laurens De Wachter</i><br />
@@ -57,9 +55,17 @@
 
 <h3>Numeric subtraction</h3>
 <p>
-    De subtraction-operatie maakt gebruik van het principe a-b = a+(b+1) (voor 2's complement)
+    De subtraction-operatie maakt gebruik van het principe a-b = a+(b+1) (voor 2's complement). Geïmplementeerd in een logisch 
+    circuit ziet dit er als volgt uit.
+    <img src="Subtractor.png" alt="Image not available"><br>
+    De overflow wordt als volgt berekend: als beide inputs negatief zijn is er nooit overflow, anders is er overflow als
+    één van beide adders een overflow heeft.
+</p>
+
+<h3>Less than</h3>
+<p>
+    
 </p>
 
 </body>
-
 </html>
