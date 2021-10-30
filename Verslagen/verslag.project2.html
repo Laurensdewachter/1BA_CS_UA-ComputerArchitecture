@@ -29,7 +29,7 @@
 <b>Moeilijkheidsgraad:</b> 5/10 (1 is heel makkelijk, 10 is heel moeilijk)</p>
 
 <h2>Inhoud van de oplossing</h2>
-<p>De oplossing bestaat uit de volgende bestanden:</p>
+<p>De oplossing bestaat uit de volgend bestand:</p>
 <ul>
 <li><a href="Adder.circ">Adder</a></li>
 </ul>
@@ -101,8 +101,8 @@ worden met het carry-lookahead principe.<br />
             <td>1</td>
         </tr>
     </table><br />
-    Uit deze tabel wordt volgende vergelijking afgeleid: <z>ab</z>c + <z>a</z>b<z>c</z> + a<z>bc</z> + <z>abc</z><br />
-    Het implementeren van deze vergelijking in een logisch circuit geeft volgend circuit:<br />
+    Uit deze tabel wordt volgende vergelijking afgeleid: <z>ab</z>c + <z>a</z>b<z>c</z> + a<z>bc</z> + <z>abc</z>.<br />
+    Het implementeren van deze vergelijking in een logisch circuit geeft volgend circuit.<br />
     <img src="1-bit_adder.png" alt=""><br />
 </p>
 
@@ -149,7 +149,7 @@ worden met het carry-lookahead principe.<br />
 
 <h4>Input/Output</h4>
 <p>
-    Na de toevoegingen van de 1-bit adders, de carry lookahead en de super propagate en -generate ziet de IO van de 4-bit adder
+    Na de toevoeging van de 1-bit adders, de carry lookahead en de super propagate en -generate ziet de IO van de 4-bit adder
     er als volgt uit.<br />
     <img src="IO_4-bit_adder.png" alt=""><br />
     We hebben 3 inputs: a, b en de C<sub>0</sub> en 3 outputs: P, G en de som.
@@ -158,9 +158,9 @@ worden met het carry-lookahead principe.<br />
 <h3>Carry-lookahead unit</h3>
 <p>
     Zoals eerder vermeld zal de Carry-lookahead unit de c<sub>0</sub> van elke 4-bit adder berekenen. Deze c<sub>0</sub> wordt
-    C<sub>0</sub>, C<sub>1</sub> en C<sub>2</sub> genoemd voor respectievelijk de eerste tweede en derde adder.<br />
-    C<sub>0</sub> zal 0 zijn aangezien de eerste CarryIn van een som altijd 0 is. C<sub>1</sub> en C<sub>2</sub> zullen op analoog
-    met c<sub>1</sub> en c<sub>2</sub> uit de 4-bit adders brekend worden.
+    C<sub>0</sub>, C<sub>1</sub> en C<sub>2</sub> genoemd voor respectievelijk de eerste, tweede en derde adder.<br />
+    C<sub>0</sub> zal 0 zijn aangezien de eerste CarryIn van een som altijd 0 is. C<sub>1</sub> en C<sub>2</sub> zullen analoog
+    met c<sub>1</sub> en c<sub>2</sub> uit de 4-bit adders berekend worden.
     <ul>
         <li>C<sub>1</sub> = G<sub>0</sub> + (P<sub>0</sub> * C<sub>0</sub>)</li>
         <li>C<sub>2</sub> = G<sub>1</sub> + (P<sub>1</sub> * G<sub>0</sub>) + (P<sub>1</sub> * P<sub>0</sub> * C<sub>0</sub>)</li>
@@ -174,10 +174,10 @@ worden met het carry-lookahead principe.<br />
     Nu alle verschillende onderdelen (op de overflow detection na) zijn besproken kan de volledige 12-bit adder worden
     bestudeert. Deze ziet er als volgt uit:<br />
     <img src="12-bit_adder.png" alt=""><br />
-    Het valt op dat elke bus die door de adder loopt al besproken is. Zo loopt er naar elke 4-bit adder 4 bits van a, 4 bits van b
-    en een CarryIn berekend door de carry-lookahead unit. Vanuit elke 4-bit adder loopt er dan ook nog een P, G naar de carry-lookahead unit
-    en hun deel van de som. Dit alles is niets nieuws. Wat echter nog niet besproken is, is de overflow detection.
-    Deze werkt volgens het simpele principe dat er overflow optreed als:
+    Het valt op dat elke bus die door de adder loopt al besproken is. Zo lopen er naar elke 4-bit adder 4 bits van a, 4 bits van b
+    en een CarryIn berekend door de carry-lookahead unit. Vanuit elke 4-bit adder lopen er dan ook nog een P, G naar de carry-lookahead
+    unit en hun deel van de som. Dit alles is niets nieuws. Wat echter nog niet besproken is, is de overflow detection.
+    Deze werkt volgens het simpele principe dat er overflow optreedt als:
     <ul>
         <li>a en b positief zijn, maar de som is negatief</li>
         <li>a en b negatief zijn, maar de som is positief</li>
@@ -188,7 +188,7 @@ worden met het carry-lookahead principe.<br />
 
 <h3>Besluit</h3>
 <p>
-    Met de principes die in dit verslag staan utigeschreven kan men zonder problemen deze 12-bit adder uitbrijden tot een
+    Met de principes die in dit verslag staan utigeschreven kan men zonder problemen deze 12-bit adder uitbreiden tot een
     16 of 32-bit adder. Het is echter wel aangeraden om altijd met blokken van 4-bit adders te blijven werken aangezien de berekening
     van de CarryIn's te lang en inefficiënt zou worden.
 </p>
