@@ -1,14 +1,19 @@
 <html>
+<style>
+    table, th, td{
+        border: 1px solid black;
+    }
+</style>
 
 <head>
-<title>ALU</title>
-<!-- Het "u" element (underline) is geherdefinieerd voor overline -->
+<title>Adder</title>
+<!-- Het "z" element (underline) is geherdefinieerd voor overline -->
 <style type="text/css">z {text-decoration: overline;}</style>
 </head>
 
 <body>
 
-<h1>Verslag 3: 12-Bit ALU</h1>    
+<h1>Verslag 2: 12-Bit Adder</h1>    
 <p>Dit verslag werd opgesteld door:<br />
 <ul>
 <li><b>Naam:</b> <i>Laurens De Wachter</i><br />
@@ -20,8 +25,8 @@
 <b>Email adres:</b> <i>simon.olivier@student.uantwerpen.be</i>
 </li>
 </ul>
-<b>Aantal man-uren besteed:</b> <i>6 uur</i><br />
-<b>Moeilijkheidsgraad:</b> 7/10 (1 is heel makkelijk, 10 is heel moeilijk)</p>
+<b>Aantal man-uren besteed:</b> <i>3 uur</i><br />
+<b>Moeilijkheidsgraad:</b> 5/10 (1 is heel makkelijk, 10 is heel moeilijk)</p>
 
 <h2>Inhoud van de oplossing</h2>
 <p>De oplossing bestaat uit de volgende bestanden:</p>
@@ -30,14 +35,70 @@
 </ul>
 
 <h2>Verslag</h2>
-<p>Geef een gestructureerd verslag van de oplossing. Gebruik figuren (bijvoorbeeld 
+<p>
+    De 12-bit adder bestaat uit 3 delen: de 4-bit adders (die op hun beurt bestaan uit 4 1-bit adders), de carry-lookahead unit
+    en de overflow detection.
+</p>
 
-screenshots) waar je denkt dat ze een bijdrage leveren. Gebruik eventueel subtitels 
-
-om structuur te brengen. Zorg ervoor dat alle onderdelen van de opgave klaar en 
-
-duidelijk besproken worden. Verduidelijk hoe je tot de oplossing bent gekomen.</p>
+<h3>1-Bit adder</h3>
+<p>
+    <table style="width:40%">
+        <tr>
+            <th>a</th>
+            <th>b</th>
+            <th>CarryIn</th>
+            <th>sum</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table>
+</p>
 
 </body>
-
 </html>
