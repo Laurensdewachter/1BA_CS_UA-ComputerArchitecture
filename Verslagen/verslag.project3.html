@@ -57,14 +57,30 @@
 <p>
     De subtraction-operatie maakt gebruik van het principe a-b = a+(b+1) (voor 2's complement). Geïmplementeerd in een logisch 
     circuit ziet dit er als volgt uit.
-    <img src="Subtractor.png" alt="Image not available"><br>
+    <img src="Subtractor.png" alt=""><br />
     De overflow wordt als volgt berekend: als beide inputs negatief zijn is er nooit overflow, anders is er overflow als
     één van beide adders een overflow heeft.
 </p>
 
-<h3>Less than</h3>
+<h3>Lesser than</h3>
 <p>
-    
+    Om te berekenen of a kleiner is dan b wordt volgend stappenplan gebruikt:
+    <ol>
+        <li>Als a negatief is en b is positief, dan is a kleiner dan b.</li>
+        <li>Als a positief is en b is negatief, dan is a niet kleiner dan b.</li>
+        <li>Als a en b gelijk zijn, dan is de output 0.</li>
+        <li>Als a-b positief is, dan is a groter dan b.</li>
+        <li>Als a-b negatief is, dan is a kleiner dan b.</li>
+    </ol>
+    Dit wordt in het circuit geïmplementeerd met behulp van multiplexers en ziet er als volgt uit.
+    <img src="Lesser_than.png" alt=""><br />
+</p>
+
+<h3>Greater than</h3>
+<p>
+    De berekening voor a groter dan b loopt analoog met die van a kleiner dan b. Het circuit "Lesser than" kan dus hergebruikt worden
+    op voorwaarde dat de constante outputs aangepast worden. Dit ziet er dan als volgt uit.
+    <img src="Greater_than.png" alt="">
 </p>
 
 </body>
