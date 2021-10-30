@@ -114,7 +114,7 @@
 <h4>Shift left logical</h4>
 <p>
     Om alle bits een plaats naar links op te schuiven wordt elke bit afgebeeld op zijn locatie + 1. Dit doen we door
-    een nieuwe bus te creeëren en elke bit op zijn nieuwe plaats te zetten in deze bus. op plaats 0 wordt een 0 gezet met behulp van
+    een nieuwe bus te creeëren en elke bit op zijn nieuwe plaats te zetten in deze bus. Op plaats 0 wordt een 0 gezet met behulp van
     een constante.<br />
     <img src="Shift_left_logical.png" alt=""><br />
 </p>
@@ -122,7 +122,7 @@
 <h4>Shift right logical</h4>
 <p>
     Deze operatie verloopt bijna analoog met "Shift left logical". Elke bit wordt afgebeeld op zijn locatie - 1.
-    op plaats 11 wordt een o gezet met behulp van een constante.<br />
+    Op plaats 11 wordt een 0 gezet met behulp van een constante.<br />
     <img src="Shift_right_logical.png" alt=""><br />
 </p>
 
@@ -143,8 +143,8 @@
 <p>
     De ALU ziet er als volgt uit.<br />
     <img src="ALU.png" alt=""><br />
-    Links worden alle operaties uitgevoerd. Rechts vinden we de twee ALU's. De linkse van de 2 geeft juiste output door.
-    De rechtse ALU zorgt ervoor dat de juiste overflow wordt doorgegeven. Voor operaties waarbij geen overflow kan voorkomen wordt
+    Links worden alle operaties uitgevoerd. Rechts vinden we de twee multiplexors. De linkse van de 2 geeft juiste output door.
+    De rechtse multiplexor zorgt ervoor dat de juiste overflow wordt doorgegeven. Voor operaties waarbij geen overflow kan voorkomen wordt
     een constante 0 doorgegeven.
 </p>
 
