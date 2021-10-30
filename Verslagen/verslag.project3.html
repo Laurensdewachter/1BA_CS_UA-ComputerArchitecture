@@ -20,10 +20,18 @@
 <b>Email adres:</b> <i>simon.olivier@student.uantwerpen.be</i>
 </li>
 </ul>
-<b>Aantal man-uren besteed:</b> <i>x uur</i><br />
-<b>Moeilijkheidsgraad:</b> <i>xx</i> /10 (1 is heel makkelijk, 10 is heel moeilijk)</p>
+<b>Aantal man-uren besteed:</b> <i>6 uur</i><br />
+<b>Moeilijkheidsgraad:</b> 7/10 (1 is heel makkelijk, 10 is heel moeilijk)</p>
 
-<h2>Operaties</h2>
+<h2>Inhoud van de oplossing</h2>
+<p>De oplossing bestaat uit de volgende bestanden:</p>
+<ul>
+<li><a href="ALU_Group18.circ">12-Bit ALU</a></li>
+<li><a href="Adder.circ">12-Bit Adder</a></li>
+</ul>
+
+<h2>Verslag</h2>
+<h3>Operaties</h3>
 <p>
     In de 12-bit ALU met 4-bit selector zijn volgende operaties (met hun selector) ingebouwd:
     <ul>
@@ -43,17 +51,16 @@
     <li>Shift right arithmetic (1101)</li>
     <li>No operation (1111)</li>
     </ul>
-    In het verslag zullen de operaties "Generate" 0, OR, AND en "No operation" niet verder worden besproken aangezien deze triviaal
+    In het verslag zullen de operaties "Generate 0", OR, AND en "No operation" niet verder worden besproken aangezien deze triviaal
     zijn.
 </p>
 
-<h3>Numeric addition</h3>
+<h4>Numeric addition</h4>
 <p>
-    Voor deze operatie is de 12-bit adder met lookahead uit het vorige project gebruikt.
-    <!--Insert link naar verslag 2 hier-->
+    Voor deze operatie is de 12-bit adder met lookahead uit het <a href="verslag.project2.html">vorige project</a> gebruikt.
 </p>
 
-<h3>Numeric subtraction</h3>
+<h4>Numeric subtraction</h4>
 <p>
     De subtraction-operatie maakt gebruik van het principe a-b = a+(<z>b</z>+1) (voor 2's complement). Geïmplementeerd in een logisch 
     circuit ziet dit er als volgt uit. <br />
@@ -62,7 +69,7 @@
     één van beide adders een overflow heeft.
 </p>
 
-<h3>Lesser than</h3>
+<h4>Lesser than</h4>
 <p>
     Om te berekenen of a kleiner is dan b wordt volgend stappenplan gebruikt:
     <ol>
@@ -77,33 +84,33 @@
     <img src="Lesser_than.png" alt=""><br />
 </p>
 
-<h3>Greater than</h3>
+<h4>Greater than</h4>
 <p>
     De berekening voor a groter dan b loopt analoog met die van a kleiner dan b. Het circuit "Lesser than" kan dus hergebruikt worden
     op voorwaarde dat de constanten aangepast worden. Dit ziet er dan als volgt uit.<br />
     <img src="Greater_than.png" alt=""><br />
 </p>
 
-<h3>Equals</h3>
+<h4>Equals</h4>
 <p>
     Om te controleren of a en b gelijk zijn aan elkaar wordt a afgetrokken van b. Als er 1 van de 12 bits van het resultaat van
     a-b 1 is, dan weten we dat a en b niet gelijk zijn. Geïmplementeerd in een circuit ziet dit er dus als volgt uit:<br />
     <img src="Equals.png" alt=""><br />
 </p>
 
-<h3>Not equals</h3>
+<h4>Not equals</h4>
 <p>
     Dit circuit is analoog aan dat van "Equals". Enkel de constante outputs zijn omgekeerd.
 </p>
 
-<h3>Numeric inverse</h3>
+<h4>Numeric inverse</h4>
 <p>
     De numeric inverse van a is gelijk aan <z>a</z>+1. Dit wordt in een circuit geïmplementeerd met behulp van de 12-bit adder en
     een 12-bit constante 0x1.<br />
     <img src="Numeric_inverse.png" alt="">
 </p>
 
-<h3>Shift left logical</h3>
+<h4>Shift left logical</h4>
 <p>
     Om alle bits een plaats naar links op te schuiven wordt elke bit afgebeeld op zijn locatie + 1. Dit doen we door
     een nieuwe bus te creeëren en elke bit op zijn nieuwe plaats te zetten in deze bus. op plaats 0 wordt een 0 gezet met behulp van
@@ -111,19 +118,19 @@
     <img src="Shift_left_logical.png" alt=""><br />
 </p>
 
-<h3>Shift right logical</h3>
+<h4>Shift right logical</h4>
 <p>
     Deze operatie verloopt bijna analoog met "Shift left logical". Elke bit wordt afgebeeld op zijn locatie - 1.
     op plaats 11 wordt een o gezet met behulp van een constante.<br />
     <img src="Shift_right_logical.png" alt=""><br />
 </p>
 
-<h3>Shift left arithemic</h3>
+<h4>Shift left arithemic</h4>
 <p>
     Deze operatie staat voor 2*a oftewel a+a. Er wordt een 12-bit adder gebruikt om deze operatie uit te voeren.
 </p>
 
-<h3>Shift right arithemic</h3>
+<h4>Shift right arithemic</h4>
 <p>
     Deze operatie loopt analoog met "Shift right logical" als a positief is. Als a negatief is kan "Shift right logical"
     wel gebruikt worden, maar dan moet bit 11 vervangen worden door 1. Dit doen we met behulp van een OR-gate en een<br />
@@ -131,7 +138,7 @@
     <img src="Shift_right_arithemic.png" alt=""><br />
 </p>
 
-<h2>De ALU</h2>
+<h3>De ALU</h3>
 <p>
     De ALU ziet er als volgt uit.<br />
     <img src="ALU.png" alt=""><br />
