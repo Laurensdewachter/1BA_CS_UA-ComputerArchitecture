@@ -6,7 +6,7 @@
 </style>
 
 <head>
-<title>Adder</title>
+<title>Verslag 2: 12-Bit Adder</title>
 <!-- Het "z" element (underline) is geherdefinieerd voor overline -->
 <style type="text/css">z {text-decoration: overline;}</style>
 </head>
@@ -112,6 +112,7 @@ worden met het carry-lookahead principe.<br />
     CarryIn nodig. De juiste bits van a en b zijn makkelijk door te geven met behulp van splitters. De CarryIn moet eerst berekend
     worden.
 </p>
+
 <h4>Carry-lookahead</h4>
 <p>
     Om de CarryIn van elke 1-bit adder te berekenen wordt gebruik gemaakt van het carry-lookahead principe. Hierbij geldt dat:
@@ -131,6 +132,7 @@ worden met het carry-lookahead principe.<br />
     Geïmplementeerd in een logisch circuit ziet dit er als volgt uit.<br />
     <img src="4-bit_adder_carry.png" alt=""><br />
 </p>
+
 <h4>Super propagates en -generates</h4>
 <p>
     De enigste CarryIn die nu nog niet berekent is, is c<sub>0</sub>. Hiervoor wordt de carry-lookahead unit gebruikt. Deze unit
@@ -166,5 +168,30 @@ worden met het carry-lookahead principe.<br />
     In een logisch circuit ziet dit er zo uit:<br />
     <img src="Carry-lookahead_unit.png" alt=""><br />
 </p>
+
+<h3>12-Bit adder</h3>
+<p>
+    Nu alle verschillende onderdelen (op de overflow detection na) zijn besproken kan de volledige 12-bit adder worden
+    bestudeert. Deze ziet er als volgt uit:<br />
+    <img src="12-bit_adder.png" alt=""><br />
+    Het valt op dat elke bus die door de adder loopt al besproken is. Zo loopt er naar elke 4-bit adder 4 bits van a, 4 bits van b
+    en een CarryIn berekend door de carry-lookahead unit. Vanuit elke 4-bit adder loopt er dan ook nog een P, G naar de carry-lookahead unit
+    en hun deel van de som. Dit alles is niets nieuws. Wat echter nog niet besproken is, is de overflow detection.
+    Deze werkt volgens het simpele principe dat er overflow optreed als:
+    <ul>
+        <li>a en b positief zijn, maar de som is negatief</li>
+        <li>a en b negatief zijn, maar de som is positief</li>
+    </ul>
+    Uit een zeer triviale truth table volgt dan volgend circuit waarbij elke wire bit 11 van a, b en de som bevat.<br />
+    <img src="Overflow_detection.png" alt=""><br />
+</p>
+
+<h3>Besluit</h3>
+<p>
+    Met de principes die in dit verslag staan utigeschreven kan men zonder problemen deze 12-bit adder uitbrijden tot een
+    16 of 32-bit adder. Het is echter wel aangeraden om altijd met blokken van 4-bit adders te blijven werken aangezien de berekening
+    van de CarryIn's te lang en inefficiënt zou worden.
+</p>
+
 </body>
 </html>
