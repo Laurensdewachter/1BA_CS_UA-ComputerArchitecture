@@ -37,12 +37,15 @@
 <h2>Verslag</h2>
 <p>
     De 12-bit adder bestaat uit 3 delen: de 4-bit adders (die op hun beurt bestaan uit 4 1-bit adders), de carry-lookahead unit
-    en de overflow detection.
+    en de overflow detection.<br />
+    In het verslag zal elk ondereel overlopen worden.
 </p>
 
 <h3>1-Bit adder</h3>
+Het optellen van 1-bit getallen geeft een "truth tabel". In deze tabel wordt de "Carry out" verwaarloosd aangezien deze berkend zal
+worden met het carry-lookahead principe.<br />
 <p>
-    <table style="width:40%">
+    <table style="width:180px">
         <tr>
             <th>a</th>
             <th>b</th>
@@ -97,7 +100,10 @@
             <td>1</td>
             <td>1</td>
         </tr>
-    </table>
+    </table><br />
+    Uit deze tabel kunnen we volgende vergelijking vinden: <z>ab</z>c + <z>a</z>b<z>c</z> + a<z>bc</z> + <z>abc</z><br />
+    Het implementeren van deze vergelijking in een logisch circuit geeft volgend circuit:
+    <img src="1-bit_adder.png" alt=""><br />
 </p>
 
 </body>
