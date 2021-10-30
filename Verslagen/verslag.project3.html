@@ -56,7 +56,7 @@
 <h3>Numeric subtraction</h3>
 <p>
     De subtraction-operatie maakt gebruik van het principe a-b = a+(<z>b</z>+1) (voor 2's complement). Geïmplementeerd in een logisch 
-    circuit ziet dit er als volgt uit.
+    circuit ziet dit er als volgt uit. <br />
     <img src="Subtractor.png" alt=""><br />
     De overflow wordt als volgt berekend: als beide inputs negatief zijn is er nooit overflow, anders is er overflow als
     één van beide adders een overflow heeft.
@@ -73,20 +73,21 @@
         <li>Als a-b negatief is, dan is a kleiner dan b.</li>
     </ol>
     Dit wordt in het circuit geïmplementeerd met behulp van multiplexers en 12-bit constanten 0x0 en 0x1 en ziet er als volgt uit.
+    <br />
     <img src="Lesser_than.png" alt=""><br />
 </p>
 
 <h3>Greater than</h3>
 <p>
     De berekening voor a groter dan b loopt analoog met die van a kleiner dan b. Het circuit "Lesser than" kan dus hergebruikt worden
-    op voorwaarde dat de constanten aangepast worden. Dit ziet er dan als volgt uit.
+    op voorwaarde dat de constanten aangepast worden. Dit ziet er dan als volgt uit.<br />
     <img src="Greater_than.png" alt=""><br />
 </p>
 
 <h3>Equals</h3>
 <p>
     Om te controleren of a en b gelijk zijn aan elkaar wordt a afgetrokken van b. Als er 1 van de 12 bits van het resultaat van
-    a-b 1 is, dan weten we dat a en b niet gelijk zijn. Geïmplementeerd in een circuit ziet dit er dus als volgt uit:
+    a-b 1 is, dan weten we dat a en b niet gelijk zijn. Geïmplementeerd in een circuit ziet dit er dus als volgt uit:<br />
     <img src="Equals.png" alt=""><br />
 </p>
 
@@ -98,8 +99,42 @@
 <h3>Numeric inverse</h3>
 <p>
     De numeric inverse van a is gelijk aan <z>a</z>+1. Dit wordt in een circuit geïmplementeerd met behulp van de 12-bit adder en
-    een 12-bit constante 0x1.
+    een 12-bit constante 0x1.<br />
     <img src="Numeric_inverse.png" alt="">
+</p>
+
+<h3>Shift left logical</h3>
+<p>
+    Om alle bits een plaats naar links op te schuiven wordt elke bit afgebeeld op zijn locatie + 1. Dit doen we door
+    een nieuwe bus te creeëren en elke bit op zijn nieuwe plaats te zetten in deze bus. op plaats 0 wordt een 0 gezet met behulp van
+    een constante.<br />
+    <img src="Shift_left_logical.png" alt=""><br />
+</p>
+
+<h3>Shift right logical</h3>
+<p>
+    Deze operatie verloopt bijna analoog met "Shift left logical". Elke bit wordt afgebeeld op zijn locatie - 1.
+    op plaats 11 wordt een o gezet met behulp van een constante.<br />
+    <img src="Shift_right_logical.png" alt=""><br />
+</p>
+
+<h3>Shift left arithemic</h3>
+<p>
+    Deze operatie staat voor 2*a oftewel a+a. Er wordt een 12-bit adder gebruikt om deze operatie uit te voeren.
+</p>
+
+<h3>Shift right arithemic</h3>
+<p>
+    Deze operatie loopt analoog met "Shift right logical" als a positief is. Als a negatief is kan "Shift right logical"
+    wel gebruikt worden, maar dan moet bit 11 vervangen worden door 1. Dit doen we met behulp van een OR-gate en een<br />
+    12-bit constante 0x800.<br />
+    <img src="Shift_right_arithemic.png" alt=""><br />
+</p>
+
+<h2>De ALU</h2>
+<p>
+    De ALU ziet er als volgt uit.<br />
+    <img src="ALU.png" alt=""><br />
 </p>
 
 </body>
