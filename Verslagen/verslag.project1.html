@@ -34,8 +34,8 @@
 
 <h3>De wetten van De Morgan</h3>
 <p>
-    Deze eerste oefening is nogal vanzelfsprekend. Om deze wet te bewijzen, voer je het linkerlid en
-    het rechterlid van de wet beide in in Logisim. Dat geeft het volgende:<br><br>
+    Deze eerste oefening is nogal vanzelfsprekend. Om deze wet te bewijzen, worden het linkerlid en
+    het rechterlid van de wet beiden in in Logisim uitgetekend. Dat geeft het volgende:<br><br>
     Links: <u>A+B</u> & Rechts: <u>A</u> . <u>B</u>
     <img src="1ste wet De Morgan.png" alt=""><br />
     Links: <u>A . B</u> & Rechts: <u>A</u> + <u>B</u>
@@ -44,35 +44,38 @@
 <h3>NAND Gate</h3>
 <h4>a)</h4>
 <p>
-    Een NAND gate gevormd uit enkel OR, AND en NOT Gates ziet er als volgt uit:
+    Een NAND gate gevormd uit enkel OR, AND en NOT Gates ziet er als volgt uit:<br />
     <img src="NAND Gate.png" alt=""><br />
 </p>
 <h4>b)</h4>
 <p>
-    Een AND, OR en NOT Gate gevormd met enkel een NAND Gate geeft volgende oplossingen:
+    Een AND, OR en NOT Gate gevormd met enkel een NAND Gate geeft volgende oplossingen:<br />
     <img src="not and or.png" alt=""><br />
 </p>
 <h3>Implement Truth Table</h3>
 <p>
-    Deze oplossing bestaat uit twee delen. Eerst kijk je wanneer X een 1 als output heeft en daarna kijk je wanneer Y een 1 als output heeft.<br>
+    Deze oplossing bestaat uit twee delen. Eerst wordt gekeken naar de situatie met X output 1, dan naar de situatie Y output 1.<br>
     De output van X gelijk aan 1 geeft volgende Booleaanse algebraïsche uitdrukking: <br><br>
     <u>A</u> . <u>B</u> . <u>C</u> + <u>A</u> . <u>B</u> . C + A . <u>B</u> . <u>C</u> <br><br>
     Dit kan nog vereenvoudigd worden tot: <u>A</u> . <u>B</u> + A . <u>B</u> . <u>C</u><br><br>
     De output van Y gelijk aan 1 geeft volgende Booleaanse algebraïsche uitdrukking:<br><br>
     <u>A</u> . <u>B</u> . <u>C</u> + <u>A</u> . <u>B</u> . C + <u>A</u> . B . <u>C</u> + A . <u>B</u> . <u>C</u> + A . B . <u>C</u><br><br>
     Dit kan nog vereenvoudigd worden tot: <u>A</u> . <u>B</u> + B . <u>C</u>  + A . <u>B</u> . <u>C</u><br><br>
-    Deze twee Booleaanse algebraïsche uitdrukkingen gecombineerd in Logisim geven volgend resultaat:
+    Deze twee Booleaanse algebraïsche uitdrukkingen gecombineerd in Logisim geven volgend resultaat:<br />
     <img src="Truth Table.png" alt=""><br />
 </p>
 <h3>LED Display</h3>
 <p>
-    Voor deze vraag moesten we gebruik maken van een 7 segment display om daarop getallen van 1 tot en met 7 weer te geven.
-    Om dat te kunnen doen moet er een indeling gemaakt worden tussen alle LED-streepjes individueel, zodat duidelijk is wanneer welk streepje moet oplichten.
+    Voor deze vraag is gebruik gemaakt van een 7 segment display om de getallen van 1 tot en met 7 weer te geven.
+    Om dat te kunnen doen moet er een indeling gemaakt worden tussen alle LED-streepjes individueel, zodat duidelijk is wanneer
+    welk streepje moet oplichten.
     Elk streepje krijgt dus een naam:<br>
     <img src="Led Display.png" alt=" "><br />
-    Er moet weergegeven kunnen worden bij welke input welke streepjes moeten oplichten en dus moet er een Truth Table opgesteld worden:<br>
+    Er moet weergegeven kunnen worden bij welke input welke streepjes moeten oplichten en dus moet er een Truth Table
+    opgesteld worden:<br>
     <img src="Tabel Led.png" alt=" "><br />
-    Hieruit kunnen we de Booleaanse algebraïsche uitdrukkingen afleiden voor elk LED-streepje apart (Dit zijn reeds de vereenvoudigde uitdrukkingen):<br>
+    Hieruit kunnen de algebraïsche uitdrukkingen afgeleid worden voor elk LED-streepje apart
+    (Dit zijn reeds de vereenvoudigde uitdrukkingen):<br>
     Voor a geeft dit:<br><br>
     <u>A</u> . B . C + A . <u>B</u> . C + A . B . <u>C</u><br><br>
     Voor b geeft dit:<br><br>
