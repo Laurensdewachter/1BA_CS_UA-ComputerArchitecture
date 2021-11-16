@@ -1,0 +1,197 @@
+<html>
+<style>
+    table, th, td{
+        border: 1px solid black;
+    }
+</style>
+
+<head>
+<title>Verslag 2: 12-Bit Adder</title>
+<!-- Het "z" element (underline) is geherdefinieerd voor overline -->
+<style type="text/css">z {text-decoration: overline;}</style>
+</head>
+
+<body>
+
+<h1>Verslag 2: 12-Bit Adder</h1>    
+<p>Dit verslag werd opgesteld door:<br />
+<ul>
+<li><b>Naam:</b> <i>Laurens De Wachter</i><br />
+<b>Studentennummer:</b> <i>s0214686</i><br />
+<b>Email adres:</b> <i>laurens.dewachter@student.uantwerpen.be</i>
+</li>
+<li><b>Naam:</b> <i>Simon Olivier</i><br />
+<b>Studentennummer:</b> <i>s0211074</i><br />
+<b>Email adres:</b> <i>simon.olivier@student.uantwerpen.be</i>
+</li>
+</ul>
+<b>Aantal man-uren besteed:</b> <i>3 uur</i><br />
+<b>Moeilijkheidsgraad:</b> 5/10 (1 is heel makkelijk, 10 is heel moeilijk)</p>
+
+<h2>Inhoud van de oplossing</h2>
+<p>De oplossing bestaat uit de volgend bestand:</p>
+<ul>
+<li><a href="Adder.circ">Adder</a></li>
+</ul>
+
+<h2>Verslag</h2>
+<p>
+    De 12-bit adder bestaat uit 3 delen: de 4-bit adders (die op hun beurt bestaan uit 4 1-bit adders), de carry-lookahead unit
+    en de overflow detection.<br />
+    In het verslag zal elk ondereel overlopen worden.
+</p>
+
+<h3>1-Bit adder</h3>
+Het optellen van 1-bit getallen geeft een "truth tabel". In deze tabel wordt de CarryOut verwaarloosd aangezien deze berekend zal
+worden met het carry-lookahead principe.<br />
+<p>
+    <table style="width:180px">
+        <tr>
+            <th>a</th>
+            <th>b</th>
+            <th>CarryIn</th>
+            <th>sum</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table><br />
+    Uit deze tabel wordt volgende vergelijking afgeleid: <z>ab</z>c + <z>a</z>b<z>c</z> + a<z>bc</z> + <z>abc</z>.<br />
+    Het implementeren van deze vergelijking in een logisch circuit geeft volgend circuit.<br />
+    <img src="1-bit_adder.png" alt=""><br />
+</p>
+
+<h3>4-Bit adder</h3>
+<p>
+    De 4-bit adder bestaat uit 4 a-bit adders in serie. Deze adders hebben elks de juiste bit van a, de juist bit van b en een
+    CarryIn nodig. De juiste bits van a en b zijn makkelijk door te geven met behulp van splitters. De CarryIn moet eerst berekend
+    worden.
+</p>
+
+<h4>Carry-lookahead</h4>
+<p>
+    Om de CarryIn van elke 1-bit adder te berekenen wordt gebruik gemaakt van het carry-lookahead principe. Hierbij geldt dat:
+    <ul>
+        <li>p<sub>i</sub> = a<sub>i</sub> + b<sub>i</sub></li>
+        <li>g<sub>i</sub> = a<sub>i</sub> * b<sub>i</sub></li>
+        <li>c<sub>i+1</sub> = g<sub>i</sub> + (p<sub>i</sub> * c<sub>i</sub>)</li>
+    </ul>
+    Met behulp van deze formules kunnen c<sub>1</sub>, c<sub>2</sub> en c<sub>3</sub> berekend worden. (c<sub>0</sub> wordt gegeven
+    vanuit de carry-lookahead unit die verder nog besproken zal worden)
+    <ul>
+        <li>c<sub>1</sub> = g<sub>0</sub> + (p<sub>0</sub> * c<sub>0</sub>)</li>
+        <li>c<sub>2</sub> = g<sub>1</sub> + (p<sub>1</sub> * g<sub>0</sub>) + (p<sub>1</sub> * p<sub>0</sub> * c<sub>0</sub>)</li>
+        <li>c<sub>2</sub> = g<sub>2</sub> + (p<sub>2</sub> * g<sub>1</sub>) + (p<sub>2</sub> * p<sub>1</sub> * g<sub>0</sub>) + 
+        (p<sub>2</sub> * p<sub>1</sub> * p<sub>0</sub> * c<sub>0</sub>)</li>
+    </ul>
+    Geïmplementeerd in een logisch circuit ziet dit er als volgt uit.<br />
+    <img src="4-bit_adder_carry.png" alt=""><br />
+</p>
+
+<h4>Super propagates en -generates</h4>
+<p>
+    De enigste CarryIn die nu nog niet berekent is, is c<sub>0</sub>. Hiervoor wordt de carry-lookahead unit gebruikt. Deze unit
+    berekent voor elke 4-bit adder c<sub>0</sub>, maar heeft hiervoor wel de super propagate (P) en -generate (G) van elke 4-bit
+    Adder nodig. De formules voor P en G gaan als volgt:
+    <ul>
+        <li>P = p<sub>3</sub> * p<sub>2</sub> * p<sub>1</sub> * p<sub>0</sub></li>
+        <li>G = g<sub>3</sub> + (p<sub>3</sub> * g<sub>2</sub>) + (p<sub>3</sub> * p<sub>2</sub> * g<sub>1</sub>) + 
+            (p<sub>3</sub> * p<sub>2</sub> * p<sub>1</sub> * g<sub>0</sub>)</li>
+    </ul>
+    Geïmplementeerd in een logisch circuit ziet dit er als volgt uit.<br />
+    <img src="4-bit_adder_super_carry.png" alt=""><br />
+</p>
+
+<h4>Input/Output</h4>
+<p>
+    Na de toevoeging van de 1-bit adders, de carry lookahead en de super propagate en -generate ziet de IO van de 4-bit adder
+    er als volgt uit.<br />
+    <img src="IO_4-bit_adder.png" alt=""><br />
+    We hebben 3 inputs: a, b en de C<sub>0</sub> en 3 outputs: P, G en de som.
+</p>
+
+<h3>Carry-lookahead unit</h3>
+<p>
+    Zoals eerder vermeld zal de Carry-lookahead unit de c<sub>0</sub> van elke 4-bit adder berekenen. Deze c<sub>0</sub> wordt
+    C<sub>0</sub>, C<sub>1</sub> en C<sub>2</sub> genoemd voor respectievelijk de eerste, tweede en derde adder.<br />
+    C<sub>0</sub> zal 0 zijn aangezien de eerste CarryIn van een som altijd 0 is. C<sub>1</sub> en C<sub>2</sub> zullen analoog
+    met c<sub>1</sub> en c<sub>2</sub> uit de 4-bit adders berekend worden.
+    <ul>
+        <li>C<sub>1</sub> = G<sub>0</sub> + (P<sub>0</sub> * C<sub>0</sub>)</li>
+        <li>C<sub>2</sub> = G<sub>1</sub> + (P<sub>1</sub> * G<sub>0</sub>) + (P<sub>1</sub> * P<sub>0</sub> * C<sub>0</sub>)</li>
+    </ul>
+    In een logisch circuit ziet dit er zo uit:<br />
+    <img src="Carry-lookahead_unit.png" alt=""><br />
+</p>
+
+<h3>12-Bit adder</h3>
+<p>
+    Nu alle verschillende onderdelen (op de overflow detection na) zijn besproken kan de volledige 12-bit adder worden
+    bestudeert. Deze ziet er als volgt uit:<br />
+    <img src="12-bit_adder.png" alt=""><br />
+    Het valt op dat elke bus die door de adder loopt al besproken is. Zo lopen er naar elke 4-bit adder 4 bits van a, 4 bits van b
+    en een CarryIn berekend door de carry-lookahead unit. Vanuit elke 4-bit adder lopen er dan ook nog een P, G naar de carry-lookahead
+    unit en hun deel van de som. Dit alles is niets nieuws. Wat echter nog niet besproken is, is de overflow detection.
+    Deze werkt volgens het simpele principe dat er overflow optreedt als:
+    <ul>
+        <li>a en b positief zijn, maar de som is negatief</li>
+        <li>a en b negatief zijn, maar de som is positief</li>
+    </ul>
+    Uit een zeer triviale truth table volgt dan volgend circuit waarbij elke wire bit 11 van a, b en de som bevat.<br />
+    <img src="Overflow_detection.png" alt=""><br />
+</p>
+
+<h3>Besluit</h3>
+<p>
+    Met de principes die in dit verslag staan utigeschreven kan men zonder problemen deze 12-bit adder uitbreiden tot een
+    16 of 32-bit adder. Het is echter wel aangeraden om altijd met blokken van 4-bit adders te blijven werken aangezien de berekening
+    van de CarryIn's te lang en inefficiënt zou worden.
+</p>
+
+</body>
+</html>
