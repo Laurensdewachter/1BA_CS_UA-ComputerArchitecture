@@ -1,13 +1,13 @@
 <html>
 <head>
-    <title>Verslag 4: Registries</title>
+    <title>Verslag 4: Registers</title>
     <!-- Het "z" element (underline) is geherdefinieerd voor overline -->
 <style type="text/css">z {text-decoration: overline;}</style>
 </head>
 
 <body>
 
-<h1>Verslag 4: Registries</h1>    
+<h1>Verslag 4: Registers</h1>    
 <p>Dit verslag werd opgesteld door:<br />
 <ul>
 <li><b>Naam:</b> <i>Laurens De Wachter</i><br />
@@ -30,7 +30,7 @@
 
 <h2>Verslag</h2>
 <p>
-    In dit project wordt eerst een 12-bit register ontworpen om deze daarna te gebruiken in een register file. Deze register file zal 8 registries bevatten. Nadien wordt een counter
+    In dit project wordt eerst een 12-bit register ontworpen om deze daarna te gebruiken in een register file. Deze register file zal 8 registers bevatten. Nadien wordt een counter
     en een fintite-state machine ontworpen.
 </p>
 
@@ -43,13 +43,14 @@
         <li>"Write" (1 bit): als <i>write</i> 1 is wordt de inhoud van <i>D</i> in het register geschreven</li>
         <li>"C" (1 bit): de klok</li>
     </ul>
-    Het register heeft slechts één output "Q" die de inhoud van het register bevat. Het register ziet er dan als volgt uit.
+    Het register heeft slechts één output "Q" die de inhoud van het register bevat. Het register ziet er dan als volgt uit.<br>
     <img src="12-bit_register.png" alt=""><br>
 </p>
 
 <h3>Register file</h3>
 <p>
-    
+    De register file maakt gebruik van 8 12-bit registers. De I/O van dit circuit bestaat uit 7 inputs en 2 outputs.<br>
+    <img src="io_register_file.png" alt="">
 </p>
 
 </body>
