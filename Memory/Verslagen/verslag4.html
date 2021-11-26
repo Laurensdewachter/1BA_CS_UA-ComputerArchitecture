@@ -44,13 +44,28 @@
         <li>"C" (1 bit): de klok</li>
     </ul>
     Het register heeft slechts één output "Q" die de inhoud van het register bevat. Het register ziet er dan als volgt uit.<br>
-    <img src="12-bit_register.png" alt=""><br>
+    <img src="12-bit_register.png" alt=""><br/>
 </p>
 
 <h3>Register file</h3>
 <p>
     De register file maakt gebruik van 8 12-bit registers. De I/O van dit circuit bestaat uit 7 inputs en 2 outputs.<br>
-    <img src="io_register_file.png" alt="">
+    <img src="io_register_file.png" alt=""><br/>
+    De inputs <i>rs</i> en <i>rt</i> bevatten elks een 3-bit getal dat verwijst naar een register. De inhoud van deze registers wordt teruggegeven uit
+    respectievelijk <i>S</i> en <i>T</i> met behulp van multiplexers. Om een bitstring op te slagen in een register wordt deze geladen in <i>Data</i>,
+    het registernummer van het register waar de bitstring moet worden opgeslagen wordt in <i>rd</i> geladen. Pas als <i>write</i> op 1 staat wordt de bitstring in het register geschreven.<br/>
+    <img src="register_file.png" alt=""><br/>
+</p>
+
+<h3>Counter</h3>
+<p>
+    De counter bestaat uit een register waarvan de waarde telkens met 1 wordt verhoogd. Als de waarde gelijk wordt aan een gegeven waarde <i>D</i> wordt de
+    counter terug op 0 gezet. Hiervoor maakt het circuit gebruik van een <i>comparator</i>.<br/>
+    <img src="counter.png" alt=""><br/>
+</p>
+<h3>Finite-state machine</h3>
+<p>
+    
 </p>
 
 </body>
