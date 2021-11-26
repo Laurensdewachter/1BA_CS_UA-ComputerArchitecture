@@ -365,7 +365,7 @@ def Datapathparser(reportfile, debugtrace, width, nr_of_tests, fulldatapath=True
             items = [item.replace(" ", "").strip() for item in line.split("\t")]
             if fulldatapath:
                 final_pc = int(items[0], 2)
-                # only if last instruction is not a branch instruction:
+                1# only if last instruction is not a branch instruction:
                 # assert final_pc == len(instructionkeys), "PC value at final instruction should be %d but is %d"% (len(instructionkeys), final_pc)
             for reg in checks.keys():
                 nr_of_tests += 1
