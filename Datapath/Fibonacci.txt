@@ -1,0 +1,16 @@
+LOADMEM
+zero r1
+zero r2
+zero r4
+zero r6
+ori r1 1
+ori r2 1
+ori r4 1
+ori r6 16
+sw r1 r6 0
+add r6 r6 r4
+add r3 r1 r2
+add r1 r2 r0
+add r2 r3 r0
+j 8
+END

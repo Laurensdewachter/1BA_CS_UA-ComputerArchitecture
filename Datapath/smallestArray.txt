@@ -1,0 +1,22 @@
+LOADMEM
+zero r6
+ori r6 22
+zero r4
+ori r4 1
+zero r1
+lw r1 r6 0
+add r6 r6 r4
+lw r2 r6 0
+add r6 r6 r4
+brnz r2 1
+j 20
+lt r5 r2 r1
+brnz r5 3
+lw r2 r6 0
+add r6 r6 r4
+j 9
+add r1 r2 r0
+lw r2 r6 0
+add r6 r6 r4
+j 9
+END
